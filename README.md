@@ -9,3 +9,5 @@ Feel free to add any of the following to the repo
 * Useful sites
 * Drafts of what you're working on 
 * Comments on files, etc. 
+
+[Click here to checkout the project page] (https://sunny-dee.github.io/data-vis-kickstarter-project/)
