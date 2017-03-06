@@ -4,16 +4,43 @@
     <meta charset="utf-8">
     <title>D3 Page Template</title>
         <script type="text/javascript" src="d3/d3.js"></script>
-        </head>
+		
+
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+  </head>
+	
+	
         <body>
-        <script type="text/javascript">
-        	var url = "https://www.kickstarter.com/projects/search.json?search=&term=bears";
-
-            d3.json(url, function (json) {
-
-             console.log(json);
-            })
-        </script>
+			
+			<p></p>
+        
             <h1>What will eventually be beautiful D3</h1>
+			
+			
+			<script
+			  src="https://code.jquery.com/jquery-3.1.1.js"
+			  integrity="sha256-16cdPddA6VdVInumRGo6IbivbERE8p7CQR3HzTBuELA="
+			  crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+			
+			<script type="text/javascript">
+        	var url = "http://cors.io/?u=http://www.kickstarter.com/projects/search.json?search=&term=bears";
+			var u = "http://api.icndb.com/jokes/random?firstName=John&amp;lastName=Doe";
+			d3.json(url, function (json) {
+
+             //code here
+				console.log(json);
+            })
+			
+//			$.getJSON('http://cors.io/?u=https://www.kickstarter.com/projects/search.json?search=&term=bears',function(data){
+//				//window.alert("success")	
+//			})
+        </script>
         </body>
 </html>
