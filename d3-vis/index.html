@@ -9,38 +9,78 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		
+	<style type="text/css">
+		div.bar {
+		display: inline-block;
+		width: 20px;
+		height: 75px; /* We'll override height later */
+		background-color: teal;
+		}
+	</style>
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
   </head>
 	
 	
-        <body>
-			
-			<p></p>
-        
-            <h1>What will eventually be beautiful D3</h1>
-			
-			
-			<script
-			  src="https://code.jquery.com/jquery-3.1.1.js"
-			  integrity="sha256-16cdPddA6VdVInumRGo6IbivbERE8p7CQR3HzTBuELA="
-			  crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
-			
-			<script type="text/javascript">
-        	var url = "http://cors.io/?u=https://www.kickstarter.com/projects/search.json?search=&term=bears";
-			var u = "http://api.icndb.com/jokes/random?firstName=John&amp;lastName=Doe";
-			d3.json(url, function (json) {
+	<body>
 
-             //code here
-				console.log(json);
-            })
+		
+
+		<h1>What will eventually be beautiful D3</h1>
+
+
+		<script src="https://code.jquery.com/jquery-3.1.1.js"
+		  integrity="sha256-16cdPddA6VdVInumRGo6IbivbERE8p7CQR3HzTBuELA="
+		  crossorigin="anonymous"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+		
+		<!-- D3 Code-->
+		<script type="text/javascript">
 			
-//			$.getJSON('http://cors.io/?u=https://www.kickstarter.com/projects/search.json?search=&term=bears',function(data){
-//				//window.alert("success")	
-//			})
-        </script>
-        </body>
+			d3.json("bang.json", function (json) {
+
+				console.log(json.projects);
+				
+				postThis(json.projects);
+				
+				bar(json.projects);
+				
+			})
+			
+			
+			var dataset = [ 5, 10, 15, 20, 25 ];
+			
+			var bar = function(stuff) {
+				d3.select("body").selectAll("div")
+					.data(stuff)
+					.enter()
+					.append("div")
+					.attr("class", "bar")
+					.style("height", function(d) {
+					return d.goal/100 + "px";
+					});
+			}
+			
+
+			
+			
+
+			var postThis =  function(stuff){
+				d3.select("body").selectAll("p")
+					.data(stuff)
+					.enter()
+					.append("p")
+					.text(function(d){
+					return d.goal; 
+				})
+			}
+			
+			
+
+
+		</script>
+	</body>
 </html>

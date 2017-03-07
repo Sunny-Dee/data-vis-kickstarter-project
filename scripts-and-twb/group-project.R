@@ -41,7 +41,7 @@ panel.hist <- function(x, ...)
   h <- hist(x, plot = FALSE)
   breaks <- h$breaks; nB <- length(breaks)
   y <- h$counts; y <- y/max(y)
-  rect(breaks[-nB], 0, breaks[-1], y, col = "cyan", ...)
+  rect(breaks[-nB], 0, breaks[-1], y, col = "white", ...)
 }
 
 ##Regression lines
@@ -54,5 +54,9 @@ panel.lm <- function (x, y, col = par("col"), bg = NA, pch = par("pch"),
 ##put histograms on scatter plot
 pairs(sub.df[, 4:9], pch = ".",
       upper.panel = panel.cor, 
-      diag.panel = panel.hist, 
-      lower.panel = panel.lm)
+      diag.panel = panel.hist)
+
+
+## Read file
+most.backed1 <- read.csv(file.choose())
+head(most.backed1, n=5)
