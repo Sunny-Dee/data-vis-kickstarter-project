@@ -48,4 +48,11 @@
 }
 
 
+#pages { 
+    padding-top: 65px; 
+}
 
+.row {
+	margin-left: 10px;
+	margin-right: 10px;
+}
