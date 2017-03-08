@@ -11,11 +11,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 		
 	<style type="text/css">
+		
 		div.bar {
-		display: inline-block;
-		width: 20px;
-		height: 75px; /* We'll override height later */
-		background-color: teal;
+			display: inline-block;
+			width: 20px;
+			height: 75px; /* We'll override height later */
+			background-color: #7E57C2;
+			margin-right: 2px;
 		}
 	</style>
 
@@ -48,11 +50,11 @@
 				
 				bar(json.projects);
 				
+				createSVG(json.projects)
+				
 			})
 			
-			
-			var dataset = [ 5, 10, 15, 20, 25 ];
-			
+						
 			var bar = function(stuff) {
 				d3.select("body").selectAll("div")
 					.data(stuff)
@@ -63,10 +65,6 @@
 					return d.goal/100 + "px";
 					});
 			}
-			
-
-			
-			
 
 			var postThis =  function(stuff){
 				d3.select("body").selectAll("p")
@@ -74,12 +72,66 @@
 					.enter()
 					.append("p")
 					.text(function(d){
-					return d.goal; 
+					return d.name; 
 				})
 			}
 			
 			
-
+			var dataset = [ 5, 10, 15, 20, 25 ];
+			//Width and height
+			var w = 600;
+			var h = 500;
+			var barPadding = 1;
+			
+			var svg = d3.select("body")
+			.append("svg")
+			.attr("width", w) 
+			.attr("height", h);
+			
+			var createSVG = function(stuff){
+				svg.selectAll("rect")
+				.data(stuff)
+				.enter()
+				.append("rect")
+				.attr("x", function(d, i){
+					return i * (w / dataset.length);
+				})
+				.attr("y", function(d){
+					return h - (d.goal * .5);
+				})
+				.attr("width", w / dataset.length - barPadding)
+				.attr("height", function(d){
+					return d.goal * .4;
+					return d.goal * .4;
+				});
+			}
+			
+			
+			
+//			svg.selectAll("rect")
+//				.data(dataset)
+//				.enter()
+//				.append("rect")
+//				.attr("x", 0)
+//				.attr("y", 0)
+//				.attr("width", 20)
+//				.attr("height", 100);
+//			
+//			
+//			var circles = svg.selectAll("circle")
+//				.data(dataset)
+//				.enter()
+//				.append("circle");
+//			
+//			circles.attr("cx", function(d, i) {
+//					return (i * 50) + 25;
+//				})
+//				.attr("cy", h/2)
+//				.attr("r", function(d) {
+//					return d;
+//				});
+			
+			
 
 		</script>
 	</body>
