@@ -14,17 +14,26 @@
   <body id="pages">
      
     <div class="container">
-        <div class="row">
-            <h1>Expected performance</h1>
-			
+		
+		<div class="row">
+			<h1>Expected performance</h1>
+		
 		</div>
 		
 		<div class="row">
-            <div class="col-md-10">
-                <img src="img/model%202.png" class="img-fluid" alt="Responsive image">
+			<p>
+				We wanted to also take a look at if there were any predictive relationships that could help us understand how each city and category of kickstarter performed relative to the entire sample. Using a basic linear regression we can see a strong relationship below.
+			</p>
+		</div>
+		
+		
+		<div class="row">
+			<div class="col-md-10">
+                <img src="img/regression.png" class="img-fluid" alt="Responsive image">
             </div>
-
-            <div class="col-md-2">
+			
+			
+			<div class="col-md-2">
                 <nav class="navbar navbar-inverse bg-inverse">
                 <!-- Navbar content -->
                     <div class="navbar navbar-default">
@@ -56,16 +65,40 @@
                   </div>
               </nav>
             </div>
-			
-			
-			<div class="row">
-				<p>
-					<!-- Some info related to this. -->
-				</p>
-			</div>
-        </div>
+		</div>
+		
+		
+        <div class="row">
+			<p>
+				We can see that there is an interesting relationship going on for each city with an R square value of roughly 85%. Using the R package Rserve, we were able to create this model and save the fitted values in Tableau as a calculated field. From there, surplus (the Amount Pledged - Goal) was benchmarked against the expected surplus (fitted Amount Pledged- Goal). The results are what you see below.
+			</p>
+		</div>
+		
+		<div class="row">
+            <div class="col-md-10">
+                <img src="img/model%202.png" class="img-fluid" alt="Responsive image">
+            </div>
 
+
+			
+        </div>
+		
+		<div class="row">
+			<p>
+				What is interesting in this visualization is that while these cities and categories are the top performers in backings, we can plainly see how each country and category did better or worse than the overall expected trend. For example, while “Video Games” is one of the top performing categories, it grossly underperforms relative to how much we would normally expect it to.
+			</p>
+		</div>
+
+			  <div>
+		  <footer>
+			<p class="pull-xs-right"><a href="#">Back to top</a></p>
+			<p>&copy; Brought to you by Sunny-Dee! &middot; <a href="https://github.com/Sunny-Dee">GitHub Account</a> &middot;</p>
+		  </footer>
+       </div> 
     </div>
+	  
+	  <!-- End of main container div-->
+
       
           <!-- jQuery first, then Tether, then Bootstrap JS. -->
 		<script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>

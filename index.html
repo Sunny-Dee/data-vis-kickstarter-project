@@ -50,7 +50,7 @@
                           </li>
                         
                         <li>
-                            Project creation is currently available to individuals in the US, UK, Canada, Australia, New Zealand, the Netherlands, Denmark, Ireland, Norway, Sweden, Germany, France, Spain, Italy, Austria, Belgium, Switzerland, Luxembourg, Hong Kong, Singapore, and Mexico
+                            Project creation is currently available to individuals with bank accounts in the US, UK, Canada, Australia, New Zealand, the Netherlands, Denmark, Ireland, Norway, Sweden, Germany, France, Spain, Italy, Austria, Belgium, Switzerland, Luxembourg, Hong Kong, Singapore, and Mexico
                         </li>
 
                       </ul>
@@ -119,7 +119,9 @@
           <div class="row" id="by-category">
               <div class="col-md-8">
                   <h2>Most backed projects by category</h2>
-                  <p>The following vis shows a treemap of the 4,000 most successful Kickstarter campaigns by category. The dashboard allows for specific category comparison. For example, product design is the most pledged category, however other categories such as typography exceeded its pledge goal many more times. Typography’s multiple is 29 compared to product design of 9.</p>
+				  <p>The following vis shows a treemap of the 4,000 most successful Kickstarter campaigns by category. The bottom left panel shows the median amount pledge per project for each category. The bottom right panel shows the total amount pledge divided by the initial goal to calculate a multiplier. This measure conveys excitement from backers.</p>
+				  
+				  <p>The dashboard allows for specific category comparison. Use the filter to select a few categories of interest and how they compare to each other. For example, product design is the most pledged category, however other categories such as typography exceeded its pledge goal many more times. Typography’s multiple is 29 compared to product design of 9.</p>
                   
                   <p>
                   Choose 2-4 categories from the checklist to the right to compare. 
@@ -136,6 +138,26 @@
 		  
 		  <br><br>
 
+		  
+		  
+		   <div class="row" id="mosaic">
+              <div class="col-md-8">
+                  <h2>Categories by country</h2>
+                  <p>
+                  	We divided the countries in similarly sized tiers to avoid clutter. The tiers were determined based on the total sum of dollars pledged for that country. The width of the bar represents the amount pledged in relation to the other countries in that tier. The tooltip tells the user details about the amount of dollars pledged in total and for each category.   
+                  </p>
+				  
+				  <p>
+				  	We can see that as we go down to lower tiers there is more specialization. Countries use Kickstarter for fewer reason and mostly related to technology. 
+				  </p>
+              </div>
+          </div>
+          
+          <div class="row">              
+              <div class='tableauPlaceholder' id='viz1489298450987' style='position: relative'><noscript><a href='#'><img alt='mosaic ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Ki&#47;Kickstartercategoriesbycountry&#47;mosaic&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='site_root' value='' /><param name='name' value='Kickstartercategoriesbycountry&#47;mosaic' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Ki&#47;Kickstartercategoriesbycountry&#47;mosaic&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1489298450987');                    var vizElement = divElement.getElementsByTagName('object')[0];                    vizElement.style.width='1004px';vizElement.style.height='769px';                    var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
+          </div>
+		  
+		  <br><br>  
 			
 		<div class="row-fluid" id="other-vis">
 			<h2>Other Visualizations</h2>
