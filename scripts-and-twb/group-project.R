@@ -1,9 +1,12 @@
 ##Group project ##
+install.packages("vcd")
+
 
 library(ggplot2)
 library(dplyr)
 library(mosaic)
 library(lubridate)
+library(vcd)
 
 ## Read csv file
 most.backed <- read.csv(file.choose())
@@ -60,3 +63,10 @@ pairs(sub.df[, 4:9], pch = ".",
 ## Read file
 most.backed1 <- read.csv(file.choose())
 head(most.backed1, n=5)
+
+
+## categories
+categories <- read.csv(file.choose())
+top.countries <- read.csv(file.choose())
+mid.countries <- read.csv(file.choose())
+mosaic(~ Country + Category + amt.pledged.usd, data=mid.countries)

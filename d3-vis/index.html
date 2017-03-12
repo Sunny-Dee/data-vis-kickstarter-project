@@ -41,95 +41,99 @@
 		
 		<!-- D3 Code-->
 		<script type="text/javascript">
+			//Width and height
+			var w = 700;
+			var h = 500;
+			var barPadding = 1;
+			var dataScale = .0155;
+			
+			var goals = [];
+			var pledge = [];
 			
 			d3.json("bang.json", function (json) {
 
-				console.log(json.projects);
+				for (var j = 0; j < json.projects.length; j++){
+					goals.push(json.projects[j].goal);
+					pledge.push(json.projects[j].pledged);
+				}
 				
-				postThis(json.projects);
-				
-				bar(json.projects);
-				
-				createSVG(json.projects)
+				createSVG(goals, dataScale);
+				addLabels(goals, dataScale);
 				
 			})
 			
-						
-			var bar = function(stuff) {
+			console.log(goals);	
+			console.log(pledge);
+			var bar = function(dataset) {
 				d3.select("body").selectAll("div")
-					.data(stuff)
+					.data(dataset)
 					.enter()
 					.append("div")
 					.attr("class", "bar")
 					.style("height", function(d) {
-					return d.goal/100 + "px";
+					return d/100 + "px";
 					});
 			}
 
-			var postThis =  function(stuff){
+			var postThis =  function(dataset){
 				d3.select("body").selectAll("p")
-					.data(stuff)
+					.data(dataset)
 					.enter()
 					.append("p")
 					.text(function(d){
-					return d.name; 
+					return d; 
 				})
 			}
 			
 			
-			var dataset = [ 5, 10, 15, 20, 25 ];
-			//Width and height
-			var w = 600;
-			var h = 500;
-			var barPadding = 1;
+			var ds = [ 5, 10, 15, 20, 25 ];
+			
 			
 			var svg = d3.select("body")
 			.append("svg")
 			.attr("width", w) 
 			.attr("height", h);
 			
-			var createSVG = function(stuff){
+			var createSVG = function(dataset, scale){
 				svg.selectAll("rect")
-				.data(stuff)
+				.data(dataset)
 				.enter()
 				.append("rect")
 				.attr("x", function(d, i){
 					return i * (w / dataset.length);
 				})
 				.attr("y", function(d){
-					return h - (d.goal * .5);
+					return h - (d * scale);
 				})
 				.attr("width", w / dataset.length - barPadding)
 				.attr("height", function(d){
-					return d.goal * .4;
-					return d.goal * .4;
+					return d * scale;
+				})
+				.attr("fill", function(d) {
+					return "rgb(0, 0, " + (d * 2 * scale) + ")";
 				});
 			}
+
 			
-			
-			
-//			svg.selectAll("rect")
-//				.data(dataset)
-//				.enter()
-//				.append("rect")
-//				.attr("x", 0)
-//				.attr("y", 0)
-//				.attr("width", 20)
-//				.attr("height", 100);
-//			
-//			
-//			var circles = svg.selectAll("circle")
-//				.data(dataset)
-//				.enter()
-//				.append("circle");
-//			
-//			circles.attr("cx", function(d, i) {
-//					return (i * 50) + 25;
-//				})
-//				.attr("cy", h/2)
-//				.attr("r", function(d) {
-//					return d;
-//				});
+			var addLabels = function(dataset, scale){
+				svg.selectAll("text")
+					.data(dataset)
+					.enter()
+					.append("text")
+					.text(function(d) {
+					return d;
+					})
+					.attr("x", function(d, i){
+					return i * (w / dataset.length)+ (w / dataset.length - barPadding) / 2;
+					})
+					.attr("y", function(d){
+						return h - (d * scale) + 14;
+					})
+					.attr("font-family", "sans-serif")
+					.attr("font-size", "10px")
+					.attr("text-anchor", "middle")
+					.attr("fill", "white");
+			}
 			
 			
 
